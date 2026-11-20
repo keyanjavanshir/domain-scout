@@ -17,6 +17,7 @@ the design* of a system for that field.
 | Pack | Field | Status | Checked |
 |---|---|---|---|
 | [creative-direction-film](domains/creative-direction-film/DOMAIN.md) | Creative direction for film and video: commercials, brand films, social video | draft | 2026-11-20 |
+| [creative-direction-event-film](domains/creative-direction-event-film/DOMAIN.md) | Solo creative director: event aftermovies and short commercials, run-and-gun; intention, footage logging, music and sound | draft | 2026-11-20 |
 
 ## What is in a pack
 
