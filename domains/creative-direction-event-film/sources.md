@@ -38,6 +38,7 @@ in their private overlay, not here.
   vendor docs; GH5 II manual: V-Log L photo style and the built-in Vlog_709 LUT.
 - https://developers.epidemicsound.com/docs/mcp/ — vendor docs; Epidemic Sound's official MCP
   server, its search filters, beta status and subscription needed for downloads.
+- https://pixabay.com/api/docs/ — vendor docs; Pixabay's API covers images and videos, not music.
 - https://www.scenedetect.com/docs/develop/ — project docs; PySceneDetect CLI and detectors.
 - https://librosa.org/doc/0.11.0/generated/librosa.beat.beat_track.html — project docs;
   beat tracking and tempo estimation.
@@ -48,7 +49,10 @@ in their private overlay, not here.
 
 ## Registry and catalogues
 
-- https://registry.modelcontextprotocol.io — MCP registry; searched 2026-11-20 for Epidemic
+- https://github.com/keyanjavanshir/architect/blob/claude/charming-faraday-lumq4e/docs/evals/2026-11-20-event-film.md
+  — eval; a live agent-architect design session with this pack, whose findings added the
+  kickstart, clip finder and references analyst patterns and Pixabay.
+- https://registry.modelcontextprotocol.io — MCP registry; searched 2026-11-20 for Pixabay, Epidemic
   Sound, Artlist, Musicbed, Soundstripe, Freesound, Whisper, transcription, scenedetect,
   OpenTimelineIO, ffmpeg, SwissTransfer and WeTransfer. Results are in references/tools.md.
 
