@@ -122,6 +122,39 @@ class TestRules(PackTestCase):
         self.assertError("literal credential")
 
 
+class TestOverlay(unittest.TestCase):
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.dir = self.tmp / "creative-direction-film"
+        self.dir.mkdir()
+        template = ROOT / "skills" / "domain-scout" / "templates" / "overlay" / "OVERLAY.md"
+        text = template.read_text(encoding="utf-8")
+        text = text.replace("extends: field-focus", "extends: creative-direction-film")
+        self.path = self.dir / "OVERLAY.md"
+        self.path.write_text(text.replace("YYYY-MM-DD", "2026-11-20"), encoding="utf-8")
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def errors(self):
+        return validate_pack.validate(self.dir, TODAY).errors
+
+    def test_template_overlay_passes(self):
+        self.assertEqual(self.errors(), [])
+
+    def test_extends_must_match_folder(self):
+        self.path.write_text(self.path.read_text().replace("extends: creative-direction-film", "extends: other"))
+        self.assertTrue(any("does not match folder" in e for e in self.errors()))
+
+    def test_unknown_section(self):
+        self.path.write_text(self.path.read_text() + "\n## Budget\n\n- 10k\n")
+        self.assertTrue(any("'Budget' is not one of" in e for e in self.errors()))
+
+    def test_secret_in_overlay(self):
+        self.path.write_text(self.path.read_text() + "\n- token ghp_abcdefghijklmnopqrstuvwxyz\n")
+        self.assertTrue(any("literal credential" in e for e in self.errors()))
+
+
 class TestCli(PackTestCase):
     def test_exit_codes(self):
         self.assertEqual(validate_pack.main([str(self.pack)]), 0)

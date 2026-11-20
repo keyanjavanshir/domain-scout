@@ -17,6 +17,7 @@ the design* of a system for that field.
 | Pack | Field | Status | Checked |
 |---|---|---|---|
 | [creative-direction-film](domains/creative-direction-film/DOMAIN.md) | Creative direction for film and video: commercials, brand films, social video | draft | 2026-11-20 |
+| [creative-direction-event-film](domains/creative-direction-event-film/DOMAIN.md) | Solo creative director: event aftermovies and short commercials, run-and-gun; intention, footage logging, music and sound | draft | 2026-11-20 |
 
 ## What is in a pack
 
@@ -36,9 +37,12 @@ The full contract is in
 ## The domain-scout skill
 
 `skills/domain-scout/` is an [Agent Skill](https://agentskills.io/specification). Given a
-field, it scopes it with you, researches it (practitioner guides, standards, vendor docs,
+field, it grills you about it — briefly for a generic pack, or in depth for a narrow
+expert; you can skip any question — then researches it (practitioner guides, standards, vendor docs,
 the MCP registry, skill catalogues, your own documents), writes a pack from the template,
-validates it, and reviews it with you before marking it `reviewed`.
+validates it, and reviews it with you before marking it `reviewed`. Answers about your own
+team, clients and tools go into a private `OVERLAY.md` in your project, never into the
+shared pack.
 
 Install it by copying or symlinking the folder into your harness's skills directory, e.g.
 `.agents/skills/domain-scout` or `.claude/skills/domain-scout`, then ask for a domain pack.

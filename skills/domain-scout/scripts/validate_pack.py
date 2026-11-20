@@ -4,6 +4,7 @@
 Usage:
   python3 validate_pack.py domains/creative-direction-film
   python3 validate_pack.py domains/*          # several packs
+  python3 validate_pack.py .agent-architect/domains/<name>   # a project overlay
   add --strict to treat warnings as errors
 
 Exit code 1 when errors are found. Rules: references/pack-format.md.
@@ -54,6 +55,8 @@ BRANCHES = [
 TOOL_COLUMNS = ["Tool", "Used for", "Integration", "Auth", "Checked"]
 REFERENCE_FILES = ["references/questions.md", "references/tools.md", "references/patterns.md"]
 REQUIRED_FIELDS = ["name", "title", "description", "keywords", "status", "checked"]
+OVERLAY_SECTIONS = ["Team", "Clients and approvals", "Tools in use", "House terms", "House rules"]
+OVERLAY_FIELDS = ["extends", "title", "checked"]
 
 LIMITS = {"DOMAIN.md": 200, "reference": 300, "contents_after": 100}
 MIN_SOURCES = 8
@@ -263,6 +266,31 @@ def check_secrets(r: Report) -> None:
                 r.error(str(path.relative_to(r.pack)), f"line {n} looks like a literal credential; use ${{VAR}}.")
 
 
+def check_overlay(r: Report) -> None:
+    rel = "OVERLAY.md"
+    text = (r.pack / rel).read_text(encoding="utf-8")
+    check_size(r, rel, text, LIMITS["DOMAIN.md"])
+    fm, body, err = split_frontmatter(text)
+    if err:
+        r.error(rel, err)
+        return
+    for field in OVERLAY_FIELDS:
+        if not fm.get(field):
+            r.error(rel, f"frontmatter field '{field}' is missing or empty.")
+    extends = fm.get("extends")
+    if extends and extends != r.pack.name:
+        r.error(rel, f"extends '{extends}' does not match folder '{r.pack.name}'.")
+    if fm.get("checked") and as_date(fm.get("checked")) is None:
+        r.error(rel, "checked must be an ISO date (YYYY-MM-DD).")
+    found = h2_headings(body)
+    if not found:
+        r.error(rel, f"has no sections; use any of {', '.join(OVERLAY_SECTIONS)}.")
+    for heading in found:
+        if heading not in OVERLAY_SECTIONS:
+            r.error(rel, f"section '{heading}' is not one of {', '.join(OVERLAY_SECTIONS)}.")
+    r.status = "overlay"
+
+
 def validate(pack: Path, today: dt.date | None = None) -> Report:
     r = Report(pack)
     today = today or dt.date.today()
@@ -271,6 +299,10 @@ def validate(pack: Path, today: dt.date | None = None) -> Report:
         return r
     if not NAME_RE.match(pack.name):
         r.error(str(pack), "folder name must be lowercase kebab-case.")
+    if (pack / "OVERLAY.md").is_file() and not (pack / "DOMAIN.md").is_file():
+        check_overlay(r)
+        check_secrets(r)
+        return r
     check_domain(r, today)
     check_questions(r)
     check_tools(r)

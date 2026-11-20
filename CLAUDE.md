@@ -22,6 +22,12 @@ Split out of agent-architect on 2026-11-20 (idea 2 in architect's `docs/ideas.md
 - **questions.md uses agent-architect's design-tree branch names** as headings, so the
   architect can merge questions branch by branch. If architect renames a branch, change
   `BRANCHES` in `validate_pack.py` and every pack.
+- **The scout grills, and the user picks the depth.** Quick gives a generic pack; deep walks
+  the domain tree (`references/grilling.md`) and gives a narrow expert. Every question can be
+  skipped; skipped answers become "Assumed, not asked" in Scope.
+- **Field answers go in the pack, team answers in an overlay.** `OVERLAY.md` lives only in
+  the user's project (`.agent-architect/domains/<name>/`), so shared packs never carry
+  people, clients, budgets or unreleased work.
 - **Draft until a person reviews it.** The scout never marks a pack reviewed on its own.
 - **Negative results are recorded** ("no MCP server found, date"), so the architect can
   suggest an API or file export instead.
@@ -32,7 +38,8 @@ Split out of agent-architect on 2026-11-20 (idea 2 in architect's `docs/ideas.md
    `keywords`, load `DOMAIN.md`, merge `questions.md` into the interview, seed MCP search
    from `tools.md`. Decide how packs are fetched (git sparse checkout, raw URL, or a local
    clone) and the project overlay format (`.agent-architect/domains/<name>/`).
-2. Review `creative-direction-film` with the owner and mark it reviewed.
+2. Owner review of `creative-direction-event-film` (made from a deep grill on 2026-11-20)
+   and of `creative-direction-film`; mark each reviewed when approved.
 3. Evals: run the same agent-architect interview with and without a pack and compare the
    questions asked and tools suggested.
 4. More packs; a refresh flow for packs past 180 days.

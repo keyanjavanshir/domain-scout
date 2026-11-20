@@ -20,6 +20,10 @@ Team sizes from a solo director-shooter to an agency with a production company.
 Not covered: feature-film financing and distribution, live broadcast engineering, studio-
 scale VFX pipelines, and media buying (see a marketing pack for planning and placement).
 
+Assumed, not asked (written before the grill existed; settle these in review):
+client or brand work rather than independent film; small studio to agency scale; Adobe or
+Resolve editing with Frame.io review; EU and US rules.
+
 The creative director owns the idea and the quality bar. Most of what can be automated
 sits around that judgement — research, preparation, tracking, checking, versioning — not
 in place of it.

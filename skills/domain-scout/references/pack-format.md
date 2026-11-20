@@ -10,6 +10,7 @@ them). `scripts/validate_pack.py` checks every rule marked **(checked)**.
 - tools.md
 - patterns.md
 - sources.md
+- OVERLAY.md (project-only)
 - How agent-architect uses a pack
 
 ## Layout
@@ -105,10 +106,23 @@ A `checked:` line, then one bullet per source: link, kind, and what it informed.
 eight distinct URLs **(checked)**, across at least three kinds (practitioner, standard or
 regulator, vendor docs, registry, catalogue, user document).
 
+## OVERLAY.md (project-only)
+
+A team's own details on top of a shared pack, written when the grill produced answers about
+the user's team. Lives at `.agent-architect/domains/<pack-name>/OVERLAY.md` in the user's
+project, never in the shared repository. At most 200 lines. **(checked)**
+
+Frontmatter: `extends` (the pack's name, equal to the folder name), `title`, `checked`.
+**(checked)** Sections, any subset, as `##` headings **(checked)**: Team, Clients and
+approvals, Tools in use, House terms, House rules.
+
+Where an overlay and its pack disagree, the overlay wins: it describes how this team
+actually works.
+
 ## How agent-architect uses a pack
 
 - **Take stock:** match the request against `keywords`; load `DOMAIN.md` of the best one
-  or two packs.
+  or two packs, and the project's `OVERLAY.md` for each if there is one.
 - **Interview:** merge `questions.md` into the design tree, branch by branch.
 - **Reuse before you build:** `tools.md` seeds the MCP and skill search.
 - **Blueprint:** `patterns.md` informs decomposition and checkpoints; risks become
