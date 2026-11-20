@@ -22,6 +22,12 @@ Split out of agent-architect on 2026-11-20 (idea 2 in architect's `docs/ideas.md
 - **questions.md uses agent-architect's design-tree branch names** as headings, so the
   architect can merge questions branch by branch. If architect renames a branch, change
   `BRANCHES` in `validate_pack.py` and every pack.
+- **The scout grills, and the user picks the depth.** Quick gives a generic pack; deep walks
+  the domain tree (`references/grilling.md`) and gives a narrow expert. Every question can be
+  skipped; skipped answers become "Assumed, not asked" in Scope.
+- **Field answers go in the pack, team answers in an overlay.** `OVERLAY.md` lives only in
+  the user's project (`.agent-architect/domains/<name>/`), so shared packs never carry
+  people, clients, budgets or unreleased work.
 - **Draft until a person reviews it.** The scout never marks a pack reviewed on its own.
 - **Negative results are recorded** ("no MCP server found, date"), so the architect can
   suggest an API or file export instead.

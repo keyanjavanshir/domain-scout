@@ -14,6 +14,8 @@ related: []
 
 What the pack covers: kinds of work, team sizes, regions. What it does not cover.
 
+Assumed, not asked: the usual answers to questions the user skipped.
+
 ## Roles
 
 | Role | Owns |
