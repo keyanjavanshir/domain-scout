@@ -10,6 +10,13 @@ this order; each earns trust for the next.
 
 ## Teams
 
+**0. Edit kickstart** — pipeline; often the best first system.
+- For the moment a solo creative director finds hardest: starting. Combines teams 1, 2
+  and 4 at their lightest. Before the event: a direction and shot wishlist from the brief
+  and references. After it: scouted stills, a contact sheet, the user's picks, two or three
+  directions with clips to start from, a music brief, then a beat map for the chosen track.
+- Checkpoints: the user adds picks; the user picks a direction and a track.
+
 **1. Sparring partner and vision one-pager** — one skill.
 - A conversation, not a fan-out. Reads the brief and the person's reference films, pitches
   three angles, gives the strongest objection to the favoured one, then drafts the
@@ -52,6 +59,16 @@ this order; each earns trust for the next.
   from questions, and flags anything that conflicts with the brief.
 - The person answers the questions and makes the changes.
 
+**5b. Clip finder** — one agent, on demand.
+- The user describes a shot they remember ("the DJ with green lasers") or gives a file
+  name; the agent searches the log and stills and returns candidates; confirmed ones become
+  picks. Also builds a browsable contact sheet (offline HTML) of all stills.
+
+**5c. References analyst** — one agent.
+- Reads the user's references (stills, screenshots, links) and their notes on what they
+  like in each; the notes come first. Describes look, pacing, framing, structure and music
+  feel, and what the references share. Cannot watch video from a link: ask for stills.
+
 **6. Social versions** — fan-out.
 - One worker per platform or length writes a version brief: duration, ratio, hook for the
   first seconds, what to cut, text on screen, safe areas. Briefs, not renders.
@@ -61,6 +78,8 @@ this order; each earns trust for the next.
 - **Sparring partner** — the missing second creative voice: proposes, objects, offers an
   alternative, and never decides.
 - **Assistant editor** — logs, builds selects and moment maps, finds clips on request.
+- **References analyst** — turns other people's work into concrete choices: look, pace,
+  structure, sound.
 - **Music scout** — knows tempo, mood and energy; searches only licensed libraries.
 - **Sound designer** — thinks in layers (ambience, natural sound, effects, music) and in
   restraint.
@@ -72,6 +91,8 @@ this order; each earns trust for the next.
 - **Opening the footage with no intention.** Leads to endless scrubbing; set an intent card
   or run footage-first logging before editing.
 - **An agent choosing the structure, the track or the takes.** It ranks; the person picks.
+- **One still per clip.** Run-and-gun clips hold several moments; sample by shot change,
+  interval and loud audio, skip blurry frames, cap per clip, and allow a closer look.
 - **Judging log footage without the conversion LUT.** Everything looks dull and
   underexposed; energy and look ratings come out wrong.
 - **Logging every clip in one context.** A few hundred clips overflow it; batch and merge.

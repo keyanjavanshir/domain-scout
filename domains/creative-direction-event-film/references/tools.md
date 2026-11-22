@@ -34,6 +34,7 @@ community server not published by the vendor; review its code before using it.
 | Tool | Used for | Integration | Auth | Checked |
 |---|---|---|---|---|
 | Epidemic Sound | Licensed music and sound effects; search by mood, BPM, genre, key or a reference track | Official: `com.epidemicsound/mcp-server` (remote, beta); also a REST API | OAuth (account) or MCP API key in `${EPIDEMIC_SOUND_API_KEY}`; downloads need a paid subscription | registry and vendor docs 2026-11-20 |
+| Pixabay Music | Free library music, common with solo creators | none for music: Pixabay's official API covers images and videos only, and the unofficial MCP servers (`io.github.hanoak/pixabay-mcp-server`, `io.github.pipeworx-io/pixabay`) wrap that API; the person searches the site | — | vendor docs and registry 2026-11-20 |
 | Artlist | Licensed music and sound effects | none found | account | registry 2026-11-20 |
 | Musicbed, Soundstripe | Licensed music | none found | account | registry 2026-11-20 |
 
