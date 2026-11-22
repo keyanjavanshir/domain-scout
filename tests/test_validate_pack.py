@@ -143,15 +143,15 @@ class TestOverlay(unittest.TestCase):
         self.assertEqual(self.errors(), [])
 
     def test_extends_must_match_folder(self):
-        self.path.write_text(self.path.read_text().replace("extends: creative-direction-film", "extends: other"))
+        self.path.write_text(self.path.read_text(encoding="utf-8").replace("extends: creative-direction-film", "extends: other"), encoding="utf-8")
         self.assertTrue(any("does not match folder" in e for e in self.errors()))
 
     def test_unknown_section(self):
-        self.path.write_text(self.path.read_text() + "\n## Budget\n\n- 10k\n")
+        self.path.write_text(self.path.read_text(encoding="utf-8") + "\n## Budget\n\n- 10k\n", encoding="utf-8")
         self.assertTrue(any("'Budget' is not one of" in e for e in self.errors()))
 
     def test_secret_in_overlay(self):
-        self.path.write_text(self.path.read_text() + "\n- token ghp_abcdefghijklmnopqrstuvwxyz\n")
+        self.path.write_text(self.path.read_text(encoding="utf-8") + "\n- token ghp_abcdefghijklmnopqrstuvwxyz\n", encoding="utf-8")
         self.assertTrue(any("literal credential" in e for e in self.errors()))
 
 
